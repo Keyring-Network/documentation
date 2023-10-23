@@ -30,8 +30,8 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title="Keyring Network - Documentation"
+      description="Official user and dev documentation">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

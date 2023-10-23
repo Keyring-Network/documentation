@@ -14,7 +14,7 @@ jobs:
       changelog: ${{ steps.github_tag_action.outputs.changelog }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Bump version and push tag
         id: github_tag_action
@@ -28,22 +28,23 @@ jobs:
     name: Create Release
     runs-on: ubuntu-latest
     needs: bump_version
+    permissions:
+        contents: write
 #    if: ${{ needs.bump_version.outputs.new_tag != null }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up node
         uses: actions/setup-node@v2
         with:
-          node-version: 14
-          registry-url: https://registry.npmjs.org
+          node-version: '19'
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm install
 
       - name: Build the ReactJS bundle
-        run: yarn build
+        run: npm run build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.5
