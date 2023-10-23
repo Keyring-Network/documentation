@@ -1,7 +1,8 @@
 {
-  "name": "keyring-docs",
+  "name": "@keyring-network/documentation",
+  "description": "Official user and dev documentation",
   "version": "1.0.0",
-  "private": true,
+  "license": "BUSL-1.1",
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
